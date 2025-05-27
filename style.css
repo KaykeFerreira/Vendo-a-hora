@@ -1,0 +1,215 @@
+/* Paleta baseada na logo */
+:root {
+  --azul-escuro: #1b2a3a;
+  --azul-claro: #00cfff;
+  --branco: #ffffff;
+  --cinza-claro: #f5f5f5;
+  --cinza: #ccc;
+  --sombra: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #12202f;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px var(--sombra);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  color: var(--azul-claro);
+  text-shadow: 0 0 5px var(--azul-claro);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--branco);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background-color: var(--azul-claro);
+  color: var(--azul-escuro);
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer {
+  background-color: #101d2b;
+  color: #ccc;
+  padding: 1rem;
+  text-align: center;
+}
+
+.bem-vindo h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--azul-claro);
+}
+
+.bem-vindo p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.botao {
+  background-color: var(--azul-claro);
+  color: var(--azul-escuro);
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.botao:hover {
+  background-color: #00b5e0;
+}
+
+/* Produtos */
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.produto {
+  background-color: #243447;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 0 4px 10px var(--sombra);
+  text-align: center;
+}
+
+.produto img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.produto h3 {
+  margin: 0.5rem 0;
+  color: var(--azul-claro);
+}
+
+.produto button {
+  background-color: var(--azul-claro);
+  color: var(--azul-escuro);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.produto button:hover {
+  background-color: #00b5e0;
+}
+
+/* Formulários */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #243447;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--sombra);
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 0.3rem;
+  border: none;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: var(--azul-claro);
+  color: var(--azul-escuro);
+  border: none;
+  padding: 12px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #00b5e0;
+}
+
+/* Links auxiliares */
+.register-link, .forgot-password-link {
+  margin-top: 1rem;
+}
+
+.register-link a, .forgot-password-link a {
+  color: var(--azul-claro);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+
+  .produtos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
