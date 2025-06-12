@@ -1,0 +1,29 @@
+@WebServlet("/uploadProduto")
+@MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
+                 maxFileSize=1024*1024*10,      // 10MB
+                 maxRequestSize=1024*1024*50)   // 50MB
+public class UploadProdutoServlet extends HttpServlet {
+    private String pastaUpload = "/caminho/para/imagens/produtos"; // Ex: "C:/meusite/imagens"
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+        String nome = request.getParameter("nome");
+        String preco = request.getParameter("preco");
+        Part filePart = request.getPart("imagem");
+
+        String nomeArquivo = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        File uploads = new File(pastaUpload);
+        if (!uploads.exists()) uploads.mkdirs();
+
+        File arquivo = new File(uploads, nomeArquivo);
+        filePart.write(arquivo.getAbsolutePath());
+
+        // Salva em um banco de dados ou JSON simples (exemplo abaixo)
+        PrintWriter out = new PrintWriter(new FileWriter(pastaUpload + "/produtos.txt", true));
+        out.println(nome + ";" + preco + ";" + nomeArquivo);
+        out.close();
+
+        response.sendRedirect("produtos.html");
+    }
+}
