@@ -11,23 +11,46 @@
 
   <main>
     <h2>Produtos</h2>
-    <div class="produtos">
-      <div class="produto">
-        <img src="relogio1.jpg" alt="Relógio 1">
-        <h3>Relógio Elegante</h3>
-        <p>R$ 199,90</p>
-        <button>Adicionar ao Carrinho</button>
-      </div>
-      <div class="produto">
-        <img src="relogio2.jpg" alt="Relógio 2">
-        <h3>Relógio Esportivo</h3>
-        <p>R$ 249,90</p>
-        <button>Adicionar ao Carrinho</button>
-      </div>
-      <!-- Adicione mais produtos conforme desejar -->
+    <div class="produtos" id="produtos-container">
+      <!-- Produtos serão inseridos aqui pelo JavaScript -->
     </div>
   </main>
 
   <footer>...</footer>
+
+  <script>
+    // Exemplo de lista de produtos que pode vir de um backend ou arquivo JSON
+    const produtos = [
+      {
+        nome: "Relógio Elegante",
+        preco: "199,90",
+        imagem: "relogio1.jpg",
+        alt: "Relógio 1"
+      },
+      {
+        nome: "Relógio Esportivo",
+        preco: "249,90",
+        imagem: "relogio2.jpg",
+        alt: "Relógio 2"
+      }
+      // Adicione mais produtos aqui conforme desejar
+    ];
+
+    const container = document.getElementById("produtos-container");
+
+    produtos.forEach(produto => {
+      const divProduto = document.createElement("div");
+      divProduto.classList.add("produto");
+
+      divProduto.innerHTML = `
+        <img src="${produto.imagem}" alt="${produto.alt}">
+        <h3>${produto.nome}</h3>
+        <p>R$ ${produto.preco}</p>
+        <button>Adicionar ao Carrinho</button>
+      `;
+
+      container.appendChild(divProduto);
+    });
+  </script>
 </body>
 </html>
